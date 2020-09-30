@@ -5,12 +5,23 @@
     <title>Selecionar Elementos #01</title>
     <link rel="stylesheet" href="css/estilo.css">
 </head>
-<body class="conteudo exercicio">
+<body class="conteudo exercicio"> <!--class exercécio se encontra no estilo.css-->
     <div id="primeiro">#primeiro</div>
     <div>Segundo</div>
     <div class="terceiro ultimo">.terceiro .ultimo</div>
-    <script>              
-        // ...
+    <script>          
+        document.getElementById('primeiro').classList.add('destaque') //pega elemento pelo Id e adiciona a classe destaque
+
+        const divs = document.getElementsByTagName('div') //pega todos elementos que contém a tag div
+        Array.from(divs).forEach(e => e.classList.remove('destaque')) //pega todos elementos, transforma em array e remove a classe destaque
+
+        const divsArray = [...divs] //spread
+        divsArray.forEach(e => e.classList.add('destaque')) //incluí a classe destaque a todas as tags div
+
+        const ultimosElementos = document.getElementsByClassName('ultimo') //seleciona elementos com a classe ultimo
+        for(let e of ultimosElementos) {
+            e.classList.remove('destaque') //remove a classe destaque dos elementos selecionados
+        }
     </script>
 </body>
 </html>
