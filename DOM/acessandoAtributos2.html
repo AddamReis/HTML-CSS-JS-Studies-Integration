@@ -17,7 +17,24 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('div ul[destino="escritório"]') //pega div que contém UL que contém o atributo destino cujo valor é escritório
+        console.log('Elemento "ul"...............')
+        console.log('childNodes', lista.childNodes)
+        console.log('destino', lista.destino) //não é possível acessar desta forma por o destino é um atributo
+        console.log('getAttribute', lista.getAttribute('destino')) //acessando o atributo da forma correta
+        console.log('hasAttribute', lista.hasAttribute('destino')) //verifica se o atributo está presente
+        lista.setAttribute('destino', 'empresa') //seta valor empresa ao atributo destino
+        lista.setAttribute('status', 'aberto')
+        lista.removeAttribute('destino') //excluiu o atributo destino
+        console.log(lista.dataset.urgencia)
+        lista.dataset.urgencia = 4
+        console.log(lista.getAttribute('data-urgencia'))
+
+        // cuidado
+        const label = document.querySelector('label')
+        console.log(label.for) //dasta forma não é possível acessar os atributos dentro da label
+        console.log(label.htmlFor) //forma correta de acessar o for de uma label
+        console.log(label.getAttribute('for')) //outra forma de acessar o for
     </script>
 </body>
 
