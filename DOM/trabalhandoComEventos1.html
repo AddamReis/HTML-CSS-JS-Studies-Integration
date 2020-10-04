@@ -9,9 +9,23 @@
 
 <body class="conteudo exercicio">
     <div>
-        <a href="https://google.com.br">Google</a>
+        <!-- onclick="navegarEm5s(event)" -->
+        <a espera-um-pouco href="https://google.com.br">Google</a>
     </div>
     <script>
-        // ...
+        function navegarEm5s(e) {
+            e.preventDefault()//previne que o comportamento padrão ocorra, neste caso o redirecionamento do link
+            console.log('Saindo em 5s...')
+            setTimeout(() => {
+                const link = e.target 
+                window.location.href = link.href //substituindo o endereço do browser 
+            }, 5000)
+        }
+
+        // const a = document.querySelector('a')
+        // a.onclick = navegarEm5s
+
+        const a = document.querySelector('[espera-um-pouco]') //atributo personalizado sem valor definido não é interpretado pelo browser, mas sim pelo js
+        a.onclick = navegarEm5s
     </script>
 </body>
